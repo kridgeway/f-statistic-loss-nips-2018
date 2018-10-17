@@ -2,6 +2,10 @@
 
 [Read the paper](https://arxiv.org/abs/1802.05312)
 
+# Pre-Reqs
+1. Tensorflow (tested on `v1.10.0`)
+2. `pip install -r requirements.txt`
+
 ## Downloading datasets
 
 1. [CUHK03](http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html)
@@ -37,6 +41,8 @@ Run `python embedding.py @path/to/model/opts.txt -me -1 -c test`.
 Recall@K results for train/val/test splits will be saved to `path/to/model/test.txt`.
 
 ## Evaluating modularity and explicitness
+_This only works for the data sets with factor labels (Sprites and Small-NORB)_
+
 Run the following two scripts:
 1. Modularity: `python eval/modularity.py @path/to/model/opts.txt -me -1 -c test`
 2. Explicitness: `python eval/explicitness.py @path/to/model/opts.txt -me -1 -c test`
