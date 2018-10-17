@@ -1,4 +1,4 @@
-# Code for "Learning Deep Disentangled Embeddings with the F-Statistic Loss" (NIPS 2018)
+# Learning Deep Disentangled Embeddings with the F-Statistic Loss (NIPS 2018)
 
 [Read the paper](https://arxiv.org/abs/1802.05312)
 
