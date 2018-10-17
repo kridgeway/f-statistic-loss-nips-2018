@@ -45,6 +45,6 @@ _This only works for the data sets with factor labels (Sprites and Small-NORB)_
 
 Run the following two scripts:
 1. Modularity: `python eval/modularity.py @path/to/model/opts.txt -me -1 -c test`
+** Modularity scores (for each dimension) will be saved to `path/to/model/modularity_test.txt`
 2. Explicitness: `python eval/explicitness.py @path/to/model/opts.txt -me -1 -c test`
-
-The results will be saved to `path/to/model/modularity.txt` and `path/to/model/explicitness.txt`, respectively.
+** Explicitness scores (for each factor) will be saved to `path/to/model/explicitness_test.txt`
