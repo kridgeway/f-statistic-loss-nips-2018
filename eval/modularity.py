@@ -127,15 +127,8 @@ if __name__ == '__main__':
         else:
             make_mi_plot(factors,model.factor_names,params,model,mis)
 
-    df = pd.DataFrame({'zdim':np.arange(z.shape[1]), 'deviation':deviations})
+    df = pd.DataFrame({'zdim':np.arange(z.shape[1]), 'modularity':1.-deviations})
     if not params.use_whole_set: fn = '%s/modularity_test.txt' % params.model_prefix
     else: fn = '%s/modularity.txt' % params.model_prefix
     df.to_csv(fn,index=False)
-    print deviations
-    print 'Overall Modularity', np.mean(deviations)
-    #print thetas, np.sum(thetas)
-    #thetas = thetas / np.sum(thetas)
-    #print thetas
-    #print deviations*thetas
-    #print 'Weighted Average', np.sum(deviations*thetas)
-
+    print 'Overall Modularity', np.mean(1.-deviations)
