@@ -600,10 +600,6 @@ def main():
     model,saver, X, identities, train_idx, val_idx, test_idx = get_model(params)
     if params.command == 'train':
         train(X,identities,train_idx,val_idx,test_idx,params,model,saver)
-    elif params.command =='tsne_vis':
-        import tsne_visualization_2 as tsne_vis
-        tsne_vis.visualize_embedding(model,X[train_idx], identities[train_idx], '%s/tsne-train.png' % (params.model_prefix))
-        tsne_vis.visualize_embedding(model,X[val_idx], identities[val_idx], '%s/tsne-val.png' % (params.model_prefix) )
     elif params.command == 'embedding' and params.output_embedding_file:
         with tf.device(params.device):
             embedding = model.compute_nid_embeddings(X[test_idx])
@@ -612,32 +608,31 @@ def main():
                      identity=identities
                      )
     elif params.command == 'test':
-        if model.params.test_type == 'open_set':
-            test_embedding = model.compute_embeddings(X[test_idx] )
-            test_recall_at_k = recall_at_k.evaluate(test_embedding, identities[test_idx], params)
-            train_embedding = model.compute_embeddings(X[train_idx])
-            train_recall_at_k = recall_at_k.evaluate(train_embedding, identities[train_idx], params)
-            val_embedding = model.compute_embeddings(X[val_idx])
-            val_recall_at_k = recall_at_k.evaluate(val_embedding, identities[val_idx], params)
-            print 'test'
-            print_recall_k(test_recall_at_k,params)
-            print 'mean', np.mean(test_recall_at_k)
-            print 'train'
-            print_recall_k(train_recall_at_k,params)
-            print 'mean', np.mean(train_recall_at_k)
-            print 'val'
-            print_recall_k(val_recall_at_k,params)
-            print 'mean', np.mean(val_recall_at_k)
-            with open('%s/test.txt' % params.model_prefix, 'w') as of:
-                of.write('test,')
-                of.write(','.join(map(str,test_recall_at_k)))
-                of.write('\n')
-                of.write('train,')
-                of.write(','.join(map(str,train_recall_at_k)))
-                of.write('\n')
-                of.write('val,')
-                of.write(','.join(map(str,val_recall_at_k)))
-                of.write('\n')
+        test_embedding = model.compute_embeddings(X[test_idx] )
+        test_recall_at_k = recall_at_k.evaluate(test_embedding, identities[test_idx], params)
+        train_embedding = model.compute_embeddings(X[train_idx])
+        train_recall_at_k = recall_at_k.evaluate(train_embedding, identities[train_idx], params)
+        val_embedding = model.compute_embeddings(X[val_idx])
+        val_recall_at_k = recall_at_k.evaluate(val_embedding, identities[val_idx], params)
+        print 'test'
+        print_recall_k(test_recall_at_k,params)
+        print 'mean', np.mean(test_recall_at_k)
+        print 'train'
+        print_recall_k(train_recall_at_k,params)
+        print 'mean', np.mean(train_recall_at_k)
+        print 'val'
+        print_recall_k(val_recall_at_k,params)
+        print 'mean', np.mean(val_recall_at_k)
+        with open('%s/test.txt' % params.model_prefix, 'w') as of:
+            of.write('test,')
+            of.write(','.join(map(str,test_recall_at_k)))
+            of.write('\n')
+            of.write('train,')
+            of.write(','.join(map(str,train_recall_at_k)))
+            of.write('\n')
+            of.write('val,')
+            of.write(','.join(map(str,val_recall_at_k)))
+            of.write('\n')
         if params.autoencoder:
             test_recon_loss = model.compute_recon_loss(X[test_idx])
             train_recon_loss = model.compute_recon_loss(X[train_idx])
