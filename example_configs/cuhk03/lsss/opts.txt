@@ -1,0 +1,13 @@
+-ds data/cuhk03.npz
+-l lsss_loss
+-n_id 500
+-dt cuhk
+-bs 12
+-epi 10
+-l2_normalize 0
+-dist l2
+-lr 1e-4
+-p 20
+-xvns 5
+-xvs 0
+-dmta

@@ -34,7 +34,7 @@ remaining_ids = np.setdiff1d(combined_id, test_combined_id)
 valid_ids = np.random.choice(remaining_ids, 100, replace=False)
 valid_indices_bool = np.in1d(combined_id, valid_ids)
 
-np.savez(os.path.dirname(__file__) + '/cuhk_dataset.npz',
+np.savez(os.path.dirname(__file__) + '/cuhk03.npz',
          imagedata=data,
          filename=filenames,
          campair=campairs,

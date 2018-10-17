@@ -1,0 +1,12 @@
+-ds data/cuhk03.npz
+-l histogram_loss
+-n_id 500
+-max_k 20
+-dt cuhk
+-bs 12
+-epi 10
+-l2_normalize 1
+-dist cos
+-p 20
+-xvns 5
+-xvs 0

@@ -1,0 +1,14 @@
+-ds data/market_1501.npz
+-l f_statistic_loss
+-f_statistic_d 63
+-n_id 500
+-dt market
+-bs 12
+-l2_normalize 0
+-dist l2
+-lr 2e-4
+-p 50
+-xvns 5
+-xvs 0
+-dmta
+-epi 5

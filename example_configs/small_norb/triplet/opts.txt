@@ -1,0 +1,15 @@
+-ds data/small_norb.npz
+-l triplet_loss
+-n_id 20
+-max_k 1
+-dt norb
+-bs 12
+-epi 10
+-l2_normalize 0
+-dmta
+-dist l2
+-lr 1e-4
+-p 20
+-xvns 5
+-xvs 0
+-mf

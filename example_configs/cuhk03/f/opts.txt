@@ -1,0 +1,13 @@
+-ds data/cuhk03.npz
+-dt cuhk
+-l f_statistic_loss
+-f_statistic_d 70
+-n_id 500
+-max_k 20
+-bs 12
+-epi 5
+-l2_normalize 0
+-dist l2
+-p 50
+-xvns 5
+-xvs 0

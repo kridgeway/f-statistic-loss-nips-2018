@@ -1,0 +1,13 @@
+-ds data/cub200.npz
+-l triplet_loss
+-n_id 500
+-max_k 20
+-dt cub200
+-bs 12
+-epi 10
+-l2_normalize 0
+-dist l2
+-p 20
+-dmta
+-xvns 5
+-xvs 0

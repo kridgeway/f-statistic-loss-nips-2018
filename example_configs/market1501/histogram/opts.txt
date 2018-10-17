@@ -1,0 +1,12 @@
+-ds data/market_1501.npz
+-l histogram_loss
+-n_id 500
+-dt market
+-bs 12
+-epi 10
+-l2_normalize 1
+-dist cos
+-lr 1e-4
+-p 20
+-xvns 5
+-xvs 0
