@@ -29,8 +29,14 @@ Configurations from the paper:
 
 Each of these examples only trains the first split. To train a split `j`, change the `-xvs j` parameter.
 
+## Evaluating Recall@K
+Run `python embedding.py @path/to/model/opts.txt -me -1 -c test`. 
+
+Recall@K results for train/val/test splits will be saved to `path/to/model/test.txt`.
+
 ## Evaluating modularity and explicitness
 Run the following two scripts:
-`python eval/modularity.py @path/to/model/opts.txt -me -1 -c test`
-`python eval/explitness.py @path/to/model/opts.txt -me -1 -c test`
-The results are stored in `path/to/model/modularity.txt` and `path/to/model/explitiness.txt`
+1. Modularity: `python eval/modularity.py @path/to/model/opts.txt -me -1 -c test`
+2. Explicitness: `python eval/explicitness.py @path/to/model/opts.txt -me -1 -c test`
+
+The results will be saved to `path/to/model/modularity.txt` and `path/to/model/explitiness.txt`, respectively.
