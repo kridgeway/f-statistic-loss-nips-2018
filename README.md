@@ -2,7 +2,7 @@
 
 [Read the paper](https://arxiv.org/abs/1802.05312)
 
-# Pre-Reqs
+## Pre-Reqs
 1. Tensorflow (tested on `v1.10.0`)
 2. `pip install -r requirements.txt`
 
@@ -23,15 +23,19 @@ These scripts each extract one `npz` type file into the `data/` subfolder.
 5. CUB-200 needs no further extraction
 
 ## Training embeddings
-The configurations used in the paper are available in the `example_configs` subfolder. For example, to train a sprite model with an unnamed-factor oracle:
-`python embedding.py @example_configs/sprites_uf/opts.txt -c train`
+The configurations used in the paper are available in the `example_configs` subfolder. For example, to train a sprite model with a factor-aware oracle and F-Statistic loss embedding:
+
+`python embedding.py @example_configs/f/sprites_factor/opts.txt -c train`
+
 Configurations from the paper:
-* `cuhk03` - class-aware training with CUHK03
-* `market1501` - class-aware training with Market-1501
-* `cub200` - class-aware training with CUB-200-2011
-* `sprites_class` - class-aware training with sprites
-* `sprites_factor` - factor-aware training with sprites
-* `norb_factor` - factor-aware training with small NORB
+```
+cub200/<f,triplet,histogram,lsss,binomial_dev>
+cuhk03/<f,triplet,histogram,lsss,binomial_dev>
+sprites/class/f **class-aware training for sprites**
+sprites/factor/<f,triplet,histogram> **factor-aware training for sprites**
+market1501/<f,triplet,histogram,lsss,binomial_dev>
+small_norb/<f,triplet,histogram>
+```
 
 Each of these examples only trains the first split. To train a split `j`, change the `-xvs j` parameter.
 
