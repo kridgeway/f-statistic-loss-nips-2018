@@ -1,5 +1,7 @@
 # Code for "Learning Deep Disentangled Embeddings with the F-Statistic Loss" (NIPS 2018)
 
+[Read the paper](https://arxiv.org/abs/1802.05312)
+
 ## Downloading datasets
 
 1. [CUHK03](http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html)
@@ -39,4 +41,4 @@ Run the following two scripts:
 1. Modularity: `python eval/modularity.py @path/to/model/opts.txt -me -1 -c test`
 2. Explicitness: `python eval/explicitness.py @path/to/model/opts.txt -me -1 -c test`
 
-The results will be saved to `path/to/model/modularity.txt` and `path/to/model/explitiness.txt`, respectively.
+The results will be saved to `path/to/model/modularity.txt` and `path/to/model/explicitness.txt`, respectively.
